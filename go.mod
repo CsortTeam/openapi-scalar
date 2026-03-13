@@ -1,4 +1,4 @@
-module csort.ru/openapi-scalar
+module github.com/CsortTeam/openapi-scalar
 
 go 1.25.0
 

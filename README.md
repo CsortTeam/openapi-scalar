@@ -6,7 +6,7 @@ Scalar API docs for Fiber. Builds OpenAPI 3.0 from route metadata.
 
 ```go
 import (
-    docs "csort.ru/openapi-scalar"
+    docs "github.com/CsortTeam/openapi-scalar"
     "github.com/gofiber/fiber/v3"
 )
 
