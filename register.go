@@ -8,8 +8,6 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-// Register mounts Scalar API docs routes on the Fiber app.
-// PathPrefix defaults to "/api/docs" if empty.
 func Register(app *fiber.App, routes []RouteInfo, opts Options) {
 	prefix := opts.PathPrefix
 	if prefix == "" {
@@ -37,14 +35,9 @@ func Register(app *fiber.App, routes []RouteInfo, opts Options) {
 	})
 
 	app.Get(prefix+"/openapi.json", func(c fiber.Ctx) error {
-		content, err := json.Marshal(spec)
-		if err != nil {
-			return c.Status(fiber.StatusInternalServerError).
-				JSON(fiber.Map{"error": "failed to generate OpenAPI spec"})
-		}
 		c.Set(fiber.HeaderContentType, fiber.MIMEApplicationJSONCharsetUTF8)
 		c.Set(fiber.HeaderCacheControl, "no-store")
-		return c.Send(content)
+		return c.Send(specJSON)
 	})
 
 	app.Get(prefix+"/openapi.yaml", func(c fiber.Ctx) error {

@@ -6,8 +6,6 @@ import (
 	"github.com/invopop/jsonschema"
 )
 
-// SchemaFromType reflects a Go struct into a JSON Schema map.
-// Useful for building request/response schemas from domain types.
 func SchemaFromType(v any) map[string]any {
 	reflector := jsonschema.Reflector{DoNotReference: true}
 	schema := reflector.Reflect(v)
@@ -24,7 +22,6 @@ func SchemaFromType(v any) map[string]any {
 	return result
 }
 
-// SchemaArray reflects a Go struct as an array-of-items schema.
 func SchemaArray(item any) map[string]any {
 	return map[string]any{
 		"type":  "array",
