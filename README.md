@@ -2,6 +2,18 @@
 
 Scalar API docs for Fiber. Builds OpenAPI 3.0 from route metadata.
 
+## Install
+
+```bash
+go get github.com/CsortTeam/openapi-scalar
+```
+
+For local development, add to your service's go.mod:
+
+```
+replace github.com/CsortTeam/openapi-scalar => ../openapi-scalar
+```
+
 ## Usage
 
 ```go

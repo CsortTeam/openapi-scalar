@@ -8,6 +8,10 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+func Spec(routes []RouteInfo, opts Options) map[string]any {
+	return buildSpec(routes, opts)
+}
+
 func Register(app *fiber.App, routes []RouteInfo, opts Options) {
 	prefix := opts.PathPrefix
 	if prefix == "" {
